@@ -12,11 +12,6 @@ Building a Smooth, Draggable Product Grid with GSAP: Recreating Palmer's Experie
 
 Run this demo on a [local server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server).
 
-```
-npm install
-npm run dev
-npm run build
-```
 
 ## Credits
 
