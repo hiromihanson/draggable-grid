@@ -34,7 +34,6 @@
   height: max-content;
   display: flex;
   gap: 5vw;
-  cursor: grab;
 }
 
 .--is-loaded {
@@ -42,6 +41,7 @@
 
   .grid {
     transition: transform 0.45s cubic-bezier(0.33, 1, 0.68, 1);
+    cursor: grab;
   }
 }
 
@@ -89,6 +89,7 @@
   background-color: #f1f1f1;
 
   transform: translate3d(50vw, 0, 0);
+  z-index: 6;
 
   @media (max-width: 600px) {
     width: 90%;
@@ -196,6 +197,22 @@ p {
 
   @media (max-width: 600px) {
     font-size: 4vw;
+  }
+}
+
+.cross {
+  position: fixed;
+  width: 3vw;
+  height: 3vw;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  pointer-events: none;
+
+  transform: scale(0);
+
+  svg {
+    width: 3vw;
+    height: 3vw;
   }
 }
 

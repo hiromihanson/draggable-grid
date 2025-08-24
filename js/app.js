@@ -1,3 +1,5 @@
+import { preloadImages } from './utils.js'
+
 gsap.registerPlugin(Draggable, Flip, SplitText)
 
 class Grid {
@@ -8,6 +10,8 @@ class Grid {
 
     this.details = document.querySelector(".details")
     this.detailsThumb = this.details.querySelector(".details__thumb")
+
+    this.cross = document.querySelector(".cross")
 
     this.isDragging = false
   }
@@ -119,6 +123,10 @@ class Grid {
 
     window.addEventListener("resize", () => {
       this.updateBounds()
+    })
+
+    window.addEventListener("mousemove", (e) => {
+      this.handleCursor(e)
     })
   }
 
@@ -302,10 +310,23 @@ class Grid {
       duration: 1.2,
       ease: "power3.inOut",
     })
+
+    gsap.to(this.cross, {
+      scale: 1,
+      duration: 0.4,
+      delay: .5,
+      ease: "power2.out"
+    })
   }
 
   unFlipProduct() {
     if (!this.currentProduct || !this.originalParent) return
+
+    gsap.to(this.cross, {
+      scale: 0,
+      duration: 0.4,
+      ease: "power2.out"
+    })
 
     const state = Flip.getState(this.currentProduct)
 
@@ -346,7 +367,23 @@ class Grid {
       },
     })
   }
+
+  handleCursor(e) {
+    const x = e.clientX
+    const y = e.clientY
+
+    gsap.to(this.cross, {
+      x: x - this.cross.offsetWidth / 2,
+      y: y - this.cross.offsetHeight / 2,
+      duration: 0.4,
+      ease: "power2.out"
+    })
+  }
 }
 
 const grid = new Grid()
-grid.init()
+
+preloadImages('.grid img').then(() => {
+  grid.init()
+  document.body.classList.remove('loading')
+})
