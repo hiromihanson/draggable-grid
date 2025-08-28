@@ -126,7 +126,9 @@ class Grid {
     })
 
     window.addEventListener("mousemove", (e) => {
-      this.handleCursor(e)
+      if (this.SHOW_DETAILS) {
+        this.handleCursor(e)
+      }
     })
   }
 
