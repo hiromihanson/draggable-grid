@@ -1,4 +1,5 @@
-.line, .char {
+.line,
+.char {
   transform: translate3d(0, 100%, 0);
 }
 
@@ -8,12 +9,12 @@
   height: 100vh;
   top: 0;
   left: 0;
-  
+
   transform-origin: center center;
   will-change: transform;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -24,7 +25,7 @@
     pointer-events: none;
 
     opacity: 0;
-    transition: opacity 0.45s ease-in-out
+    transition: opacity 0.45s ease-in-out;
   }
 }
 
@@ -52,7 +53,7 @@
 }
 
 .column:nth-child(even) {
-  margin-top: 10vw;  
+  margin-top: 10vw;
 }
 
 .product {
@@ -85,7 +86,7 @@
   right: 0;
   width: 50vw;
   height: 100vh;
-  padding: 4vw 2vw;
+  padding: 3vw 4vw;
   background-color: #f1f1f1;
 
   transform: translate3d(50vw, 0, 0);
@@ -99,18 +100,16 @@
 }
 
 .details__title {
-  margin-bottom: 2vw;
+  margin-bottom: 4vw;
   position: relative;
-  height: 3vw;
+  display: grid;
 
   @media (max-width: 600px) {
     margin-bottom: 8vw;
   }
 
   p {
-    position: absolute;
-    top: 0;
-    left: 0;
+    grid-area: 1 / -1;
     overflow: hidden;
     font-size: 3vw;
 
@@ -142,9 +141,8 @@
 
   span {
     display: block;
-    font-size: 2vw;
-    font-weight: bold;
-    margin-bottom: .5vw;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 
     @media (max-width: 600px) {
       font-size: 8vw;
@@ -156,9 +154,10 @@
     border: none;
     display: block;
     background-color: transparent;
-    margin-top: 1vw;
-    font-weight: bold;
-    text-transform: uppercase;
+    margin-top: 1.5rem;
+    border: 1px solid;
+    border-radius: 1rem;
+    padding: 0.25rem 1rem;
 
     @media (max-width: 600px) {
       margin-top: 5vw;
@@ -183,7 +182,8 @@
     width: 100%;
   }
 
-  div, img {
+  div,
+  img {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -192,7 +192,7 @@
 }
 
 p {
-  font-size: .625vw;
+  font-size: 0.625vw;
   margin-bottom: 1vw;
 
   @media (max-width: 600px) {
