@@ -120,33 +120,23 @@
 }
 
 .details__body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   align-items: end;
   gap: 2vw;
-
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr;
-  }
 }
 
 .details__texts {
   position: relative;
   height: 100%;
   line-height: 1.5;
-
-  @media (max-width: 600px) {
-    top: 70vw;
-  }
+  display: grid;
+  max-width: 15rem;
 
   span {
     display: block;
     font-size: 1.5rem;
     margin-bottom: 1rem;
-
-    @media (max-width: 600px) {
-      font-size: 8vw;
-    }
   }
 
   button {
@@ -165,7 +155,8 @@
   }
 
   [data-text] {
-    position: absolute;
+    grid-area: 1 / -1;
+    /* position: absolute; */
     bottom: 0;
     left: 0;
   }
@@ -192,12 +183,8 @@
 }
 
 p {
-  font-size: 0.625vw;
+  font-size: 0.85rem;
   margin-bottom: 1vw;
-
-  @media (max-width: 600px) {
-    font-size: 4vw;
-  }
 }
 
 .cross {

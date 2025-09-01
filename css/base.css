@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "TWK Lausanne";
-  src: url("../public/TWK-Lausanne.woff2") format("woff2");
+  font-family: 'TWK Lausanne';
+  src: url('../public/TWK-Lausanne.woff2') format('woff2');
 }
 
 *,
@@ -13,10 +13,10 @@
 
 :root {
   font-size: 12px;
-  --color-text: #1A1A1A;
+  --color-text: #1a1a1a;
   --color-bg: #fff;
-  --color-link: #1A1A1A;
-  --color-link-hover: #1A1A1A;
+  --color-link: #1a1a1a;
+  --color-link-hover: #1a1a1a;
   --page-padding: 1.5rem;
 }
 
@@ -29,10 +29,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
+html,
+body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: "TWK Lausanne", sans-serif;
+  font-family: 'TWK Lausanne', sans-serif;
 }
 
 body {
@@ -41,7 +42,6 @@ body {
 
 @media (scripting: enabled) {
   .loading {
-
     &::before,
     &::after {
       content: '';
@@ -118,27 +118,29 @@ a {
 }
 
 .frame {
-  padding: 3rem var(--page-padding) 0;
   display: grid;
   z-index: 1000;
-  position: relative;
   grid-row-gap: 1rem;
   grid-column-gap: 2rem;
   pointer-events: none;
   justify-items: start;
-  grid-template-columns: auto auto;
+  align-content: start;
+  padding: var(--page-padding);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  grid-template-columns: auto auto auto 1fr;
+  grid-template-rows: auto auto 1fr;
   grid-template-areas:
-    'title'
-    'back'
-    'archive'
-    'github'
-    'demos'
-    'tags'
-    'sponsor';
+    'title title title title'
+    'back github archive ...'
+    'sponsor sponsor sponsor sponsor';
 
   #cdawrap {
-    justify-self: start;
-    grid-area: sponsor;
+    max-width: 260px;
+    align-self: end;
   }
 
   a,
@@ -178,32 +180,6 @@ a {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-  }
-
-  @media screen and (min-width: 53em) {
-    padding: var(--page-padding);
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    grid-template-columns: auto auto auto auto 1fr;
-    grid-template-rows: auto auto;
-    align-content: space-between;
-    grid-template-areas:
-      'title back github archive demos'
-      'tags tags tags sponsor sponsor';
-
-    .frame__tags {
-      align-self: end;
-    }
-
-    .frame__demos,
-    #cdawrap {
-      justify-self: end;
-      text-align: right;
-      max-width: 300px;
-    }
   }
 }
 
