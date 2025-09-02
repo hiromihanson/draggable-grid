@@ -96,6 +96,8 @@
     width: 90%;
     height: 100vh;
     padding: 8vw 7vw;
+
+    transform: translate3d(90%, 0, 0);
   }
 }
 
