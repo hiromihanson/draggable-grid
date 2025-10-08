@@ -37,12 +37,19 @@
   gap: 5vw;
 }
 
+.grid-clone {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  display: flex;
+  gap: 5vw;
+}
+
 .--is-loaded {
   overflow: hidden;
 
   .grid {
     transition: transform 0.45s cubic-bezier(0.33, 1, 0.68, 1);
-    cursor: grab;
   }
 }
 
