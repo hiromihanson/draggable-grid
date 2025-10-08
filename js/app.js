@@ -83,7 +83,7 @@ class Grid {
     gsap.set(this.gridClone, { x: gridWidth });
 
     // Create infinite marquee with seamless looping
-    const duration = 30; // speed of the marquee
+    const duration = 45; // speed of the marquee
 
     this.marqueeTimeline = gsap.timeline({
       repeat: -1,
